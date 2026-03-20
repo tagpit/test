@@ -30,7 +30,7 @@ processed_file.touch(exist_ok=True)
 
 POLL_INTERVAL = 30
 POLL_LIMIT = 30
-MAX_MSG_AGE = timedelta(hours=24)
+MAX_MSG_AGE = timedelta(hours=3)
 
 # ========== LOG ==========
 def gui_print(s: str):
@@ -126,7 +126,7 @@ async def handle_message(message: Message):
         )
 
         await bot.send_message(target_chat_id, out_text, disable_web_page_preview=True)
-        gui_print(f"[SEND] {msg_date} | {message.chat.title}")
+       # gui_print(f"[SEND] {msg_date} | {message.chat.title}")
 
     mark_processed(key)
 
@@ -137,7 +137,7 @@ async def live_handler(_, message: Message):
         await handle_message(message)
         await user.read_history(message.chat.id)
     except Exception as e:
-        print(f"[LIVE ERROR] {e}")
+      #  print(f"[LIVE ERROR] {e}")
 
 # ========== POLL ==========
 async def poll_loop():
@@ -155,7 +155,7 @@ async def poll_loop():
             except FloodWait as fw:
                 await asyncio.sleep(fw.seconds + 1)
             except Exception as e:
-                print(f"[POLL ERROR] {ch}: {e}")
+               # print(f"[POLL ERROR] {ch}: {e}")
 
         await asyncio.sleep(POLL_INTERVAL)
 
@@ -163,7 +163,9 @@ async def poll_loop():
 async def main_async():
     async with bot, user:
         asyncio.create_task(poll_loop())
-        print("Bot started")
+      #  print("Bot started")
+        
+        await bot.send_message(target_chat_id, "bot started", disable_web_page_preview=True)
 
         while True:
             await asyncio.sleep(1)
