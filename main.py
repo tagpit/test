@@ -28,8 +28,8 @@ history_dir.mkdir(exist_ok=True)
 processed_file = Path("processed_ids.txt")
 processed_file.touch(exist_ok=True)
 
-POLL_INTERVAL = 30
-POLL_LIMIT = 30
+POLL_INTERVAL = 20
+POLL_LIMIT = 3
 MAX_MSG_AGE = timedelta(hours=3)
 
 # ========== LOG ==========
