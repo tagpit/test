@@ -147,8 +147,8 @@ async def poll_loop():
                 async for msg in user.get_chat_history(ch, limit=POLL_LIMIT):
                     await handle_message(msg)
 
-                peer = await user.resolve_peer(ch)
-                await user.invoke(functions.messages.ReadHistory(peer=peer,max_id=0))
+                #peer = await user.resolve_peer(ch)
+                #await user.invoke(functions.messages.ReadHistory(peer=peer,max_id=0))
 
                 await asyncio.sleep(0.4)
 
