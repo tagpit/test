@@ -144,7 +144,7 @@ async def poll_loop():
     while True:
         for ch in channels:
             try:
-                async for msg in user.get_chat_history(ch, limit=POLL_LIMIT):
+                async for msg in user.get_chat_history(ch, limit=1):
                     await handle_message(msg)
 
                 peer = await user.resolve_peer(ch)
