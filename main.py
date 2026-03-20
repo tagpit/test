@@ -165,7 +165,7 @@ async def main_async():
         asyncio.create_task(poll_loop())
       #  print("Bot started")
         
-        await bot.send_message(target_chat_id, "bot started", disable_web_page_preview=True)
+       # await bot.send_message(target_chat_id, "bot started", disable_web_page_preview=True)
 
         while True:
             await asyncio.sleep(1)
