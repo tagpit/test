@@ -30,7 +30,7 @@ processed_file.touch(exist_ok=True)
 
 POLL_INTERVAL = 30
 POLL_LIMIT = 30
-MAX_MSG_AGE = timedelta(hours=12)
+MAX_MSG_AGE = timedelta(hours=24)
 
 # ========== LOG ==========
 def gui_print(s: str):
