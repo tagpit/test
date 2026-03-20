@@ -12,7 +12,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.raw import functions
 
 # ========== ENV ==========
-api_id = int(os.getenv("API_ID"))
+api_id = os.getenv("API_ID")
 api_hash = os.getenv("API_HASH")
 bot_token = os.getenv("BOT_TOKEN")
 
