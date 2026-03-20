@@ -137,7 +137,7 @@ async def live_handler(_, message: Message):
         await handle_message(message)
         await user.read_history(message.chat.id)
     except Exception as e:
-      #  print(f"[LIVE ERROR] {e}")
+        print(f"[LIVE ERROR] {e}")
 
 # ========== POLL ==========
 async def poll_loop():
