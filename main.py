@@ -155,7 +155,7 @@ async def poll_loop():
             except FloodWait as fw:
                 await asyncio.sleep(fw.seconds + 1)
             except Exception as e:
-               # print(f"[POLL ERROR] {ch}: {e}")
+                print(f"[POLL ER] {ch}: {e}")
 
         await asyncio.sleep(POLL_INTERVAL)
 
